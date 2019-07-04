@@ -8,6 +8,8 @@ namespace Sakr
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World! developer");
+            Console.WriteLine("Git");
+
         }
     }
 }
