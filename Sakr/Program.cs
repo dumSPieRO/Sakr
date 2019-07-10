@@ -39,7 +39,7 @@ namespace Sakr
 
         public int fweight()
         {
-
+            12
         }
         public int fvolume()
         {
