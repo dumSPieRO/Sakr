@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Sakr
 {
@@ -16,19 +17,16 @@ namespace Sakr
     {
         int fweight();
         int fvolume();
-        int inventory();
+        Dictionary<Gooods, int> inventary();
     }
 
 
     interface ITransport: Iadder
     {
-        string name;
-        int weight;
-        int volume;
 
         int fweight();
         int fvolume();
-        int inventory();
+        Dictionary<Gooods, int> inventary();
     }
 
     class Transport : ITransport
@@ -36,25 +34,19 @@ namespace Sakr
         public string name{get; set;}
         public int weight{get; set;}
         public int volume{get; set;}
-
+        public Route route { get; set; }
         public int fweight()
         {
-            12
+            return 0;
         }
         public int fvolume()
         {
-
+            return 0;
         }
-        public int inventory()
+        public void charge(Gooods good, int n)
         {
-
         }
-
-        public void charge(int n, string name)
-        {
-
-        }
-        public void charge(string name)
+        public void charge(string name, int n)
         {
 
         }
@@ -69,6 +61,10 @@ namespace Sakr
             return true;
         }
 
+        public Dictionary<Gooods, int> inventary()
+        {
+            return route.inventary();
+        }
     }
 
 }
