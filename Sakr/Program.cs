@@ -8,8 +8,20 @@ namespace Sakr
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World! developer");
-            Console.WriteLine("Git");
+            Goods g1 = new Goods("Мороженко", 5, 12);
+            Goods g2 = new Goods("Конфетки", 1, 1);
+            Unloading unloading = new Unloading(g1, 20);
+
+            Console.WriteLine(unloading);
+            unloading.add(g2, 100);
+            Console.WriteLine(unloading);
+            unloading.add(g1, 10);
+            Console.WriteLine(unloading);
+            unloading.remove(g2, 50);
+            Console.WriteLine(unloading);
+            unloading.remove(g2, 50);
+            Console.WriteLine(unloading);
+           
         }
     }
 
@@ -17,7 +29,7 @@ namespace Sakr
     {
         int fweight();
         int fvolume();
-        Dictionary<Gooods, int> inventary();
+        Dictionary<Goods, int> inventary();
     }
 
 
@@ -26,7 +38,7 @@ namespace Sakr
 
         int fweight();
         int fvolume();
-        Dictionary<Gooods, int> inventary();
+        Dictionary<Goods, int> inventary();
     }
 
     class Transport : ITransport
@@ -37,23 +49,24 @@ namespace Sakr
         public Route route { get; set; }
         public int fweight()
         {
-            return 0;
+            return route.fweight();
         }
         public int fvolume()
         {
-            return 0;
+            return route.fvolume();
         }
-        public void charge(Gooods good, int n)
+        public bool charge(Goods good, int n)
         {
+            return true;
         }
-        public void charge(string name, int n)
+        public bool charge(string name, int n)
         {
-
+            return true;
         }
 
-        public void discharge(int n, string name)
+        public bool discharge(int n, string name)
         {
-
+            return true;
         }
 
         public bool limit()
@@ -61,10 +74,9 @@ namespace Sakr
             return true;
         }
 
-        public Dictionary<Gooods, int> inventary()
+        public Dictionary<Goods, int> inventary()
         {
             return route.inventary();
         }
     }
-
 }

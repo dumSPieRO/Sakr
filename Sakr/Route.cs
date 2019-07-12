@@ -8,7 +8,7 @@ namespace Sakr
     {
         int fweight();
         int fvolume();
-        Dictionary<Gooods, int> inventary();
+        Dictionary<Goods, int> inventary();
         int length();
     }
 
@@ -16,27 +16,38 @@ namespace Sakr
     {
         string name;
         List<RoutePoint> routePoints = new List<RoutePoint>();
+
         public int fvolume()
         {
-            throw new NotImplementedException();
+            int fv = 0;
+            foreach (RoutePoint rp in routePoints)
+            {
+                fv += rp.fvolume() * rp.flag;
+            }
+            return fv;
         }
 
         public int fweight()
         {
-            throw new NotImplementedException();
+            int fw = 0;
+            foreach (RoutePoint rp in routePoints)
+            {
+                fw += rp.fweight() * rp.flag;
+            }
+            return fw;
         }
 
-        public Dictionary<Gooods, int> inventary()
+        public Dictionary<Goods, int> inventary()
         {
-            Dictionary<Gooods, int> dict = new Dictionary<Gooods, int>();
+            Dictionary<Goods, int> dict = new Dictionary<Goods, int>();
             foreach (RoutePoint routePoint in routePoints)
             {
-                Dictionary<Gooods, int> temp = routePoint.inventary();
+                Dictionary<Goods, int> temp = routePoint.inventary();
                 if (dict.Count == 0)
                     dict = temp;
                 else
                 {
-                    foreach (Gooods g in temp.Keys)
+                    foreach (Goods g in temp.Keys)
                     {
                         if (dict.ContainsKey(g))
                             dict[g] += temp[g];
@@ -53,7 +64,7 @@ namespace Sakr
             return routePoints.Count;
         }
 
-        public void charge(Gooods good, int n)
+        public void charge(Goods good, int n)
         {
         
         }

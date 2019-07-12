@@ -4,26 +4,22 @@ using System.Text;
 
 namespace Sakr
 {
+
     class Goods
     {
+        public Goods(string name, int weight, int volume)
+        {
+            this.name = name;
+            this.weight = weight;
+            this.volume = volume;
+        }
+        public string name { get; set; }
+        public int weight { get; set; }
+        public int volume { get; set; }
+
         public override string ToString()
         {
-            return $"Груз:: \n Наименование: {name} \n Масса: {mas} \n Объем: {v}";
-        }
-        public int mas
-        {
-            get;
-            set;
-        }
-        public int v
-        {
-            get;
-            set;
-        }
-        public string name
-        {
-            get;
-            set;
+            return name + $" (масса: {weight}, объём: {volume})";
         }
     }
 }
