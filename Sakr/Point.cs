@@ -19,5 +19,12 @@ namespace Sakr
         public int x { get; set; }
         public int y { get; set; }
         public string name { set; get; }
+
+        public Point(string name, int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+            this.name = name;
+        }
     }
 }

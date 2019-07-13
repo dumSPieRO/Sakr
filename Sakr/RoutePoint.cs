@@ -17,6 +17,8 @@ namespace Sakr
         public Unloading deliveredgoods { get; set; }
         public short flag { get; set; }     //Здесь инфа о прохождении машины точки
         public bool isComplite { get; set; }//Здесь инфа о выполнении запроса
+        public Point position { get; set; }
+
         public RoutePoint(Dictionary<Goods, int> goods)
         {
             flag = 1;
